@@ -1,0 +1,90 @@
+---
+title: "Week 5 Assignment"
+author: "Anthony Khaiat"
+date: "2023-02-01"
+output: html_document
+---
+
+# Week 5 Assignment: Neural Nets and Big Data
+
+1.  **How does the task of multi-class classification differ from binary classification? How does the architecture of a multi-class classifier neural network differ from a neural network that does binary classification?**
+
+    The task differs in that multi-class classification has must output the probabilities of belonging to each class or output. This requires a softmax function instead of an ordinary sigmoid curve as we would like our probability to sum to 1 for multiple classifications. In addition, there are multiple outputs versus a binary classification with only one output. Therefore, there are several nodes in the output layer instead of one for binary classification.
+
+2.  **How might a self-driving car use multi-class classification? How might a speech-to-text algorithm use multi-class classification? For each of these, what is being classified, and what are some examples of the classes?**
+
+    A self-driving car would need to use multi-class classification via image data. Every digital image is a grid of pixels and every pixel consists of a combination of the three primary colors (RGB). A self-driving car would need to recognize objects on the rode based on the combinations of various pixels of images. For example, a self-driving car might identify multiple objects on the road such as a truck or a traffic light. It also uses softmax functions in the output layer to see which category/class has the most weight (trees, traffic lights, signs, etc...).
+
+    Sounds are waves of vibration, and they can be decomposed into its constituent frequencies. These sound waves can be represented in a form called a spectrograph which can then be transformed into a matrix of data similar to an image, where each frequency and its strengths are inputted into the matrix. The data matrix can then be fed through a neural network to predict words for a speech-to-text algorithm. Using multi-class classification allows the prediction of multiple spoken words or other important sound classifications. Some applications include detecting different sounds of cough or recognizing different types of music.
+
+3.  **What is training data? What might a set of training data look like for the multi-class classifier that a self-driving car uses? What might training data look like for a speech-to-text algorithm? What might training data look like for the algorithm YouTube uses to select recommendations for you?**
+
+    Training data is a data set used to train a machine learning model. The training data for a multi-class classifier that a self-driving car uses would be lots of images from cars' cameras and street views along with their respective tags that provide the actual observed outcome.
+
+    The training data for speech-to-text algorithms appear in the format of audio files with specific tags associated with them (for example, a recording of a personal saying "hello" would be tagged as hello).
+
+    The training data for the algorithm YouTube uses to select recommendations might assume that people who spend more time watching certain categories of videos are more prone to stay on the site, so YouTube might build training data that takes in thousands to millions of videos you've watched, the category of the video, the amount of time you spend watching each video to infer on what it should recommend you.
+
+4.  **Many medical conditions, such as Type 2 diabetes, are associated with both genetic and lifestyle risk factors. Moreover, a growing literature suggests that genetics factors can interact with lifestyle factors in complex ways to shape biological processes (epigenetics). Suppose you are designing a study that aims to train a deep neural network that can be used to predict individuals' risk for Type 2 diabetes in the United States. Your study will collect genetic and lifestyle data, along a blood sugar test, from 100,000 US residents. Would you want your study participants to be a representative sample of the US population? What would that mean, and why would you want a representative sample? Or would you want a non-representative sample? In what way would you want your sample to be non-representative of the public? Describe your sampling decisions, providing one benefit and one disadvantage of your approach.**
+
+    Ideally, you would want study participants to be a representative sample of the U.S. population. If this sample is not representative, then we cannot reasonably infer any predictions from the model as the training data would be biased. If the sample is representative, then the training data would allow the model to more accurately predict Type 2 diabetes on the testing data (any given person in the U.S. not in our sample). A non-representative sample may skew the data or lead to false inferences when applied to the general U.S. population. To obtain the sample, I would obtain patient data from a variety of hospitals within all 50 states of the U.S. comprising of individuals of all age ranges, genders, races, and income levels. One advantage is that I would be able to get a more accurate model through a representative sample, but a major disadvantage would be that it would take a long time to obtain the data.
+
+5.  **Training data for classification tasks generally must be "labeled," meaning that the true classification of each case must be included in the data. However, labeled training data is expensive, because often the labeling must be done by humans. As a result, most people working in machine learning research are reliant on the same few publicly available datasets. [Read this article about The People's Speech dataset](https://thegradient.pub/new-datasets-to-democratize-speech-recognition-technology-2/). What are three benefits of the People's Speech dataset? What is "forced alignment" and why do they need to use it? In the section on the Multilingual Spoken Words Corpus, what do they mean by "low-resource language" and why are they important to include in a publicly available dataset? (Worth 2 points).**
+
+    Three benefits of the People's Speech dataset are that there is a diversity of speech, controlled acustic environment, and commercial use is allowed.
+
+    Forced alignment is in reference to aligning the raw text in SubRip files to the corresponding audio manually instead of relying on time stamps. They need to use it because they cannot train directly on the contents of the audio and the transcript. Timestamps are usually intended for closed captioning of videos and do not align precisely with when words are actually spoken.
+
+    Low resource languages are languages in their dataset that have over 500 unique keywords and a total of 10,000 audio samples. These are unlike medium- or high-resource langauges that have thousands of unique keywords and thousands to millions of audio clips per language. They are important to include in publicly available data sets because cutting-edge speech technology should not be limited to English and a handful of other languages. The People's Speech looks to present MSWC (Multilingual Spoken Words Corpus) to diversity the existing public data sets of speech audio data sets.
+
+6.  For each of the following forms of data, describe (a) how a social media platform could obtain and that data from you, and (b) how they could use that data to increase engagement, target advertising, or otherwise influence your behavior (Worth 2 points):
+
+    1.  Images
+
+        (a) They could obtain image data posted on social media accounts and messages between users.
+
+        (b) They could use the image data from social media posts in their ML models to show the user items that might interest them. For example, if a user posts lots of pictures about cars, they might get targeted car advertisements or popular car channels.
+
+    2.  Sound
+
+        (a) They could obtains sound data from videos posted on social media accounts and messages between users.
+
+        (b) They could use the sound data to increase engagement by recommending videos with sounds that are posted frequently by the user. For example, if the user posts videos about their favorite political candidate, they might get recommended videos of this political candidate.
+
+    3.  Social Network
+
+        (a) A social media platform can obtain social network data by seeing which individuals you tag on posts or who you follow on their platform; for example, if you tagged your friends in your social media post, then the platform could obtain this data.
+
+        (b) They could use that data to increase engagement by showing your friend's posts at the top of your feed, thereby increasing engagement on the platform.
+
+    4.  Your demographics (age, race, gender)
+
+        (a) The social media platform could obtain age, gender, and race information when a user first creates an account. Some platforms require users to input their age and sometimes optional demographic data. They could also infer based on images posted by the user.
+
+        (b) The platform could target advertising specifically to a user's age, race and gender by showing ads for products that are popular within the user's demographics. For example, if the user is a teenage boy, they may show advertisements related to a new video game.
+
+    5.  Your location
+
+        (a) The platform could obtain your location whenever you use their app. Enabling the app to detect your location could tell the platform where you currently are located and the ML models could infer where your hometown might be based on the posts on a user's account.
+
+        (b) This data can be used for target advertising by showing advertisements of local businesses or familiar environments such as streets, neighborhoods, and local destinations.
+
+    6.  Your political opinions
+
+        (a) The platform could obtain political opinions based on how many hours the user spends watching videos which are categorized to please certain audiences (democrats, republicans, etc...). The platform could also detect whether a user is following political candidates within certain political parties.
+
+        (b) The platform could use the data to increase engagement by showing on the top of the user's feed posts that are related to their political party or candidates who are part of their supported political party. The platform could also target ads to users by showing them campaign ads of politicians they would support.
+
+7.  Complete the following interactive web "hyperessay": <https://howthey.watch/you/> What are two forms of data collected by web trackers that you were unaware of? What are two ways that this data can be used? (Worth 2 points)
+
+    Two forms of data collected by web trackers that I was unaware of were cookies and browser fingerprints. I was also unaware that trackers collected mouse and key stroke data. Mouse data can be used to detect subtle signs of medical conditions such as Parkinson's disease and sell this data to insurance providers. Key stroke data can be used by digital marketing agencies to provide targeted ads for content or goods that the user finds interesting.
+
+Extra Credit: It's spooky to think about all the information that tech companies collect about us. There are ways to increase privacy (using special browsers, disabling GPS, not using a smart phone), but these range from mildly inconvenient to totally impractical. I want you to think about some areas of your life that you truly do not want tech companies to record and store. You don't have to describe them here if you don't want to (for obvious reasons), but keep them in mind as you answer this question: *should there be legal limits on what data tech companies can collect from us (even if we consent to them in Terms of Use), and should there be legal limits on the ways they can use this data?*
+
+Currently, tech companies show some restraint in how they collect data; Amazon claims that Alexa is not recording and transmitting all of your conversations all the time, most social media companies promise not to sell your data to third parties). But tech companies only do this because they are afraid they would lose users if they did not respect privacy. *Do you think it is sufficient for privacy to be ensured by market mechanisms like this? Would it be government overreach to legally restrict what a tech company can do if you consent to their Terms of Use?*
+
+Write at least a paragraph (5 sentences or more) describing your position on these questions. There isn't a right or wrong answer, but your response should show thoughtful engagement with the question.
+
+I think that tech companies should have legal limits on what data they can collect from their users. Many individuals have different preferences with regard to privacy, some may be open to sharing their digital identity while others may be more discretionary. I think that a happy medium would be that tech companies should be allowed to access any data on their users which is generated within their application. Tech companies should not be able to track, for example, a user's location while they are not using their application. However, a company can track metrics such as how much time a user spends on certain website pages, what contents on their site are of interest to the user, etc...
+
+My hope for tech companies is that they are able to be as transparent as possible to cater to all users' preferences; the european union requires websites to ask customers for permission to track their cookies and allow users to specialize which cookies they are allowed to track. I think this is a great step towards respecting privacy boundaries that should be replicated in the U.S.
